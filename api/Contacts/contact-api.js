@@ -37,9 +37,16 @@ router.delete("/removeContact/:id", async (req, res) => {
 
 // Update Contact
 router.put("/updateContact", async (req, res) => {
+  const payload = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    phoneNumber: req.body.phoneNumber,
+    profileImg: req.body.profileImg,
+  };
+
   const updateContactInfo = await contactsModel.findOneAndUpdate(
     req.body._id,
-    req.body,
+    payload,
     { new: true }
   );
   updateContactInfo
