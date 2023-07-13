@@ -44,7 +44,7 @@ router.put("/updateContact", async (req, res) => {
     profileImg: req.body.profileImg,
   };
 
-  const updateContactInfo = await contactsModel.findOneAndUpdate(
+  const updateContactInfo = await contactsModel.findByIdAndUpdate(
     req.body._id,
     payload,
     { new: true }
